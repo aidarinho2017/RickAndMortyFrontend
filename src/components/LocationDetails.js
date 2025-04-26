@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {Link, useParams} from "react-router-dom";
+import API_BASE_URL from "../api/api";
 
 const LocationDetails = () => {
     const { id } = useParams();
@@ -9,7 +10,7 @@ const LocationDetails = () => {
     useEffect(() => {
         const fetchLocation = async () => {
             try {
-                const res = await fetch(`http://localhost:8080/locations/${id}`);
+                const res = await fetch(`${API_BASE_URL}/locations/${id}`);
                 const data = await res.json();
                 setLocation(data);
 

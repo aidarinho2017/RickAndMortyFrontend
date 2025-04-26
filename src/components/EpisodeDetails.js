@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {Link, useParams} from "react-router-dom";
-
+import API_BASE_URL from "../api/api";
 const EpisodeDetails = () => {
     const { id } = useParams();
     const [episode, setEpisode] = useState({});
@@ -9,7 +9,7 @@ const EpisodeDetails = () => {
     useEffect(() => {
         const fetchEpisode = async () => {
             try {
-                const res = await fetch(`http://localhost:8080/episodes/${id}`);
+                const res = await fetch(`${API_BASE_URL}/episodes/${id}`);
                 const data = await res.json();
                 setEpisode(data);
 

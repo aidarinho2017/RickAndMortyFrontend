@@ -7,6 +7,68 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* General background + text color */
+body[data-bs-theme="dark"],
+.container[data-bs-theme="dark"] {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body[data-bs-theme="light"],
+.container[data-bs-theme="light"] {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* Card background */
+body[data-bs-theme="dark"] .card {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+  border: 1px solid #333;
+}
+
+body[data-bs-theme="light"] .card {
+  background-color: #ffffff;
+  color: #212529;
+}
+
+/* Input fields (Search, Filter) */
+body[data-bs-theme="dark"] input,
+body[data-bs-theme="dark"] select {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body[data-bs-theme="light"] input,
+body[data-bs-theme="light"] select {
+  background-color: #ffffff;
+  color: #212529;
+}
+
+/* Buttons */
+body[data-bs-theme="dark"] .btn {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body[data-bs-theme="light"] .btn {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 1px solid #ccc;
+}
+
+/* Navbar colors */
+body[data-bs-theme="dark"] .navbar {
+  background-color: #1f1f1f !important;
+}
+
+body[data-bs-theme="light"] .navbar {
+  background-color: #ffffff !important;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

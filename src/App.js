@@ -9,9 +9,17 @@ import Episodes from "./pages/Episodes";
 import Navbar from "./components/navbar/NavBar";
 import Locations from "./pages/Locations";
 import LocationDetails from "./components/LocationDetails";
+import {useEffect} from "react";
+import {ThemeProvider} from "./components/themes/ThemeContext";
 
 function App() {
-  return (
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-bs-theme", savedTheme);
+    }, []);
+
+    return (
+        <ThemeProvider>
       <Router>
           <div className="App">
               <Navbar />
@@ -26,6 +34,7 @@ function App() {
 
         </Routes>
       </Router>
+        </ThemeProvider>
   );
 }
 

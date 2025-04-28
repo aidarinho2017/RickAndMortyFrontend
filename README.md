@@ -13,7 +13,7 @@
 
 http://localhost:3000 - ссылка для запуска
 
-чтобы запустить приложение, также должен быть запущен бэкэнд. Ссылка на бэкэнд - https://github.com/aidarinho2017/RickAndMortyBackend
+чтобы запустить приложение, также должен быть запущен бэкэнд. Ссылка на мой бэкэнд - https://github.com/aidarinho2017/RickAndMortyBackend
 
 ## Скриншоты
 

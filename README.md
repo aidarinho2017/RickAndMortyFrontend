@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Проект Рик и Морти
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Проект в котором можно смотреть список персонажей, локации и эпизоды из мультсериала Рик и Морти, а также нажимать на них чтобы
+получить более подробную информацию о них
 
-## Available Scripts
+## Запуск приложения
 
-In the project directory, you can run:
+### `npm install`
+
+Чтобы установить все необходимые файлы
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+http://localhost:3000 - ссылка для запуска
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+чтобы запустить приложение, также должен быть запущен бэкэнд. Ссылка на бэкэнд - https://github.com/aidarinho2017/RickAndMortyBackend
 
-### `npm test`
+## Скриншоты
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Image alt](screenshots/characters.png)
+![Image alt](screenshots/characterinfo.png)
+![Image alt](screenshots/locationcharacters.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Описание процесса
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Сначала был разработан бэкэнд на Go. Я создал модели для хранения персонажей, эпизодов и локаций, которые я брал
+с https://rickandmortyapi.com. Затем я написал 6 эндпоинтов которые фронтенд должен брать, но фронтенд не видел 
+эти данные, поэтому я добавил еще CORS middleware. Фронтенд я написал на React, а для дизайна я использовал
+классы с Bootstrap, что очень быстро и удобно. Во фронтенде я сделал светлую и темную темы через шаблон bootstrap.
+Были сделаны фильтрация, поиск и пагинация для удобного просмотра.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Как пользоваться
 
-### `npm run eject`
+В навигации можно переключиться на персонажей, эпизоды или локации. Перед вами
+появится список из них. При нажатии появится более подробная информация, если нажать 
+на персонажа, то можно увидеть страницу с полной информацией о нем
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

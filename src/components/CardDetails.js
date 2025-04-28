@@ -40,7 +40,7 @@ const CardDetails = () => {
     const handleNext = () => {
         const nextId = parseInt(id) + 1;
         if (nextId > 826) {
-            navigate("/1"); // Go to first character if next exceeds
+            navigate("/characters/1"); // Go to first character if next exceeds
         } else {
             navigate(`/${nextId}`);
         }

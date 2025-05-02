@@ -1,10 +1,27 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Pagination from "../components/pagination/Pagination";
 import Cards from "../components/Cards";
 import Search from "../components/search/Search";
 import Filter from "../components/filter/Filter";
-import {ThemeContext} from "../components/themes/ThemeContext";
+import { ThemeContext } from "../components/themes/ThemeContext";
 import API_BASE_URL from "../api/api";
+
+// Utility for debouncing search input
+const useDebounce = (value, delay) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay);
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [value, delay]);
+
+    return debouncedValue;
+};
 
 const Home = () => {
     const [pageNumber, updatePageNumber] = useState(1);
@@ -15,21 +32,23 @@ const Home = () => {
     const [status, setStatus] = useState("");
     const { theme } = useContext(ThemeContext);
 
+    const debouncedSearch = useDebounce(search, 500); // Debounce search input with a 500ms delay
 
-    const api = `${API_BASE_URL}/characters?page=${pageNumber}&name=${search}&gender=${gender}&species=${species}&status=${status}`;
+    const fetchData = async () => {
+        const api = `${API_BASE_URL}/characters?page=${pageNumber}&name=${debouncedSearch}&gender=${gender}&species=${species}&status=${status}`;
+        try {
+            const res = await fetch(api);
+            const data = await res.json();
+            updateFetchedData(data);
+        } catch (err) {
+            console.error("Error fetching data:", err);
+            updateFetchedData({ info: {}, results: [] }); // fallback to empty on error
+        }
+    };
 
     useEffect(() => {
-        (async () => {
-            try {
-                const res = await fetch(api);
-                const data = await res.json();
-                updateFetchedData(data);
-            } catch (err) {
-                console.error("Error fetching data:", err);
-                updateFetchedData({ info: {}, results: [] }); // fallback to empty on error
-            }
-        })();
-    }, [api]);
+        fetchData();
+    }, [pageNumber, debouncedSearch, gender, species, status]); // Watch the necessary state variables
 
     const { info, results } = fetchedData;
 
@@ -43,7 +62,6 @@ const Home = () => {
                 setGender={setGender}
                 updatePageNumber={updatePageNumber}
             />
-
             <div className="row">
                 <Cards results={results} page="/" />
             </div>
@@ -57,3 +75,4 @@ const Home = () => {
 };
 
 export default Home;
+

@@ -15,6 +15,8 @@ http://localhost:3000 - ссылка для запуска
 
 чтобы запустить приложение, также должен быть запущен бэкэнд. Ссылка на мой бэкэнд - https://github.com/aidarinho2017/RickAndMortyBackend
 
+## ссылка на деплоенный сайт: https://rickmortynfactorial.netlify.app/
+
 ## Скриншоты
 
 ![Image alt](screenshots/characters.png)

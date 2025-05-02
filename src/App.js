@@ -3,7 +3,6 @@ import "bootstrap/dist/js/bootstrap";
 import Home from "./pages/Home"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CardDetails from "./components/CardDetails";
-//import EpisodesList from "./components/EpisodesList";
 import EpisodeDetails from "./components/EpisodeDetails";
 import Episodes from "./pages/Episodes";
 import Navbar from "./components/navbar/NavBar";
